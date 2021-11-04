@@ -1,17 +1,22 @@
 package com.Revature.ToDoTwo;
 
-import com.Revature.ToDoTwo.beans.TestBean;
+import com.Revature.ToDoTwo.OtherBeans.TestBean;
 import com.Revature.ToDoTwo.beans.entities.TestEntity;
+import com.Revature.ToDoTwo.beans.services.APIClientService;
 import com.Revature.ToDoTwo.beans.services.TestEntityService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Propagation;
 
 import java.util.List;
 
-@SpringBootApplication(scanBasePackages = "com.Revature.ToDoTwo.beans")
+@SpringBootApplication(scanBasePackages = {"com.Revature.ToDoTwo.beans", "com.Revature.ToDoTwo.OtherBeans"})
 @EntityScan("com.revature.ToDoTwo.beans.entities")
+@EnableTransactionManagement
 public class ToDoTwoApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(ToDoTwoApplication.class, args);
@@ -20,6 +25,9 @@ public class ToDoTwoApplication {
 		System.out.println(bean.getOtherBean().getTest());
 
 		TestEntityService service = context.getBean(TestEntityService.class);
+
+		TestBean testBean = context.getBean(TestBean.class);
+		System.out.println("TestBean: " + testBean.getOtherBean().getTest());
 
 		TestEntity entity = new TestEntity((int)(100 * Math.random()), "test");
 		service.save(entity);
@@ -37,6 +45,15 @@ public class ToDoTwoApplication {
 		for(TestEntity temp : service.getSome()) {
 			System.out.println("[" + temp.getId() + "] " + temp.getString());
 		}
+
+
+		/*
+		 * Example of using the OKHttp client, see APIClientService class
+		 */
+		String url = "https://pokeapi.co/api/v2/pokemon/ditto";
+		String json = APIClientService.get(url);
+		System.out.println("PokeAPI ditto: \n" + json);
+
 
 	}
 }

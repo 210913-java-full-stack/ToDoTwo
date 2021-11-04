@@ -1,4 +1,4 @@
-package com.Revature.ToDoTwo.beans;
+package com.Revature.ToDoTwo.OtherBeans;
 
 import org.springframework.stereotype.Component;
 

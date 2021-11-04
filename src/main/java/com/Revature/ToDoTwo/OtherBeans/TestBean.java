@@ -1,4 +1,4 @@
-package com.Revature.ToDoTwo.beans;
+package com.Revature.ToDoTwo.OtherBeans;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,4 @@ public class TestBean {
     public void setOtherBean(OtherTestBean otherBean) {
         this.otherBean = otherBean;
     }
-
-
-
 }
