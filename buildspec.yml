@@ -1,24 +1,19 @@
-
 version: 0.2
+
+#  <groupId>com.revature</groupId>
+#  <artifactId>ToDoTwo</artifactId>
+#  <version>0.1</version>
+#  <packaging>war</packaging>
 
 phases:
   install:
     runtime-versions:
       java: corretto8
-  pre_build:
-    commands:
-    # - aws s3 cp s3://codebuild-p2-resources/application.properties ./src/main/resources/
-  build:
-    commands:
-      - echo Build started on `date`
-      - mvn clean package -DskipTests
-
   post_build:
     commands:
-      - echo Build completed on `date`
-      - mv target/*.war ./
+      - mvn package -DskipTests
+      - mv target/ToDoTwo-0.1.war ToDoTwo-0.1.war
 artifacts:
-  #This creates an artifact with the following files. This artifact is passed to the next step in the build process.
   files:
-    - ./**/*
-#  name: artifact
+    - ToDoTwo-0.1.war
+    - .ebextensions/**/*
