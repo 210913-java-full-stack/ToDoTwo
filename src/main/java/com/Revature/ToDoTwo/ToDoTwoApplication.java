@@ -4,13 +4,12 @@ import com.Revature.ToDoTwo.OtherBeans.TestBean;
 import com.Revature.ToDoTwo.beans.entities.TestEntity;
 import com.Revature.ToDoTwo.beans.services.APIClientService;
 import com.Revature.ToDoTwo.beans.services.TestEntityService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Propagation;
+
 
 import java.util.List;
 
