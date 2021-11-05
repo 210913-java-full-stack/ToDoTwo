@@ -16,7 +16,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - mv target/*.jar ./
+      - mv target/*.war ./
 artifacts:
   #This creates an artifact with the following files. This artifact is passed to the next step in the build process.
   files:
