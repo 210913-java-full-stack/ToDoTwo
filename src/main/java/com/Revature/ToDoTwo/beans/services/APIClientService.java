@@ -34,7 +34,7 @@ public class APIClientService {
 
         } catch (IOException e) {
             //TODO: Set up file logger or AOP logging and invoke here instead of stack trace
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return null;
     }
