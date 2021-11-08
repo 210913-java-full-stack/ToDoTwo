@@ -1,0 +1,21 @@
+.card-container{
+    /* Properties for parent - flex container */
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-card{
+    /* Properties for children - flex items */
+    text-align: center;
+    margin: 1em;
+    border-width: 0.1em;
+    border-style: solid;
+    border-radius: 0.5em;
+    width: 20em;
+    height: 15em;
+    background-color:paleturquoise;
+}
