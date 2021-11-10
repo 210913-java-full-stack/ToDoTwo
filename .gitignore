@@ -34,3 +34,4 @@ build/
 
 ### Kyle's Stuff ###
 *.properties
+node_modules/
