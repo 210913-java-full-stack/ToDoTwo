@@ -49,4 +49,6 @@ public class TestEntity implements Serializable {
     public void setString(String string) {
         this.string = string;
     }
+
+
 }
