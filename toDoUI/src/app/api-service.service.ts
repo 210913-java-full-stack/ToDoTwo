@@ -34,7 +34,19 @@ export class ApiServiceService {
   }
 
   //post toDoItem
-  //...
+  createNewToDoItem(_message: String): Observable<ToDoItem> {
+    let item = {
+      message: _message,
+      complete: false
+    }
+    console.log("posting...", item);
+    return this.client.post<ToDoItem>(this.baseUrl + "/ToDoItems", JSON.stringify(item), this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+
+  }
 
 
   errorHandler(error: any) {

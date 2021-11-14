@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { observable } from 'rxjs';
+import { ApiServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-to-do-item-form',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToDoItemFormComponent implements OnInit {
 
-  constructor() { }
+  message: string = '';
+  service: ApiServiceService;
+
+  constructor(_service: ApiServiceService) { 
+    this.service = _service;
+  }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    this.service.createNewToDoItem(this.message).subscribe(data => {
+      console.log(data);
+    })
+    
   }
 
 }

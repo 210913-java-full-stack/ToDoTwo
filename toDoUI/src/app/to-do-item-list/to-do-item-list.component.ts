@@ -21,11 +21,9 @@ export class ToDoItemListComponent implements OnInit {
     this.apiService.getToDoItems().subscribe(data => {
       console.log(data);
       for (const item of data) {
-        //let newItem: ToDoItem = JSON.parse(item);
         let {id, message, complete} = item;
         this.toDoItems.push({id, message, complete})
         console.log(item);
-        //this.toDoItems.push(newItem);
       }
     })
   }

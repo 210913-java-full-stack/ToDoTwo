@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ToDoItemListComponent } from './to-do-item-list/to-do-item-list.component';
 import { ToDoItemFormComponent } from './to-do-item-form/to-do-item-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ToDoItemFormComponent } from './to-do-item-form/to-do-item-form.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule//oops, another mistake in the notes...
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
